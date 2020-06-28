@@ -48,7 +48,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "49:8f:ac:c0:5c:46:d0:5d:bd:a3:df:24:42:bb:f5:37"  # 環境変数化できない
+            - "69:64:57:c7:84:8b:35:5b:e1:d9:1a:98:5c:c9:b9:98"  # 環境変数化できない
 
       - run:
           name: Start ssh-keyscan
