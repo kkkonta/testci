@@ -1,0 +1,44 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "webpack",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "popper.js": "^1.15.0",
+    "jquery": "^3.4.1",
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@fortawesome/fontawesome-free": "^5.10.2",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^4.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.1"
+  },
+  "scripts": {
+    "test": "test",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkkonta/testci.git"
+},
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkkonta/testci/issues"
+  },
+  "homepage": "https://github.com/kkkonta/testci.git#readme"
+}
