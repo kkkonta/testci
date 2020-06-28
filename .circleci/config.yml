@@ -35,3 +35,41 @@ jobs:
           paths:
             - . # 共有するパス（絶対パスかrootからの相対パス）
 
+  deploy_to_staging:
+    docker:
+      - image: circleci/node:10
+
+    working_directory: ~/workspace
+
+    steps:
+      - attach_workspace: # workspaceをアタッチする
+          at: .
+
+      # need rsync for deployment
+      - run: sudo apt install -y rsync
+
+      - add_ssh_keys:
+          fingerprints:
+            - "49:8f:ac:c0:5c:46:d0:5d:bd:a3:df:24:42:bb:f5:37"  # 環境変数化できない
+
+      - run:
+          name: Start ssh-keyscan
+          command: |
+            ssh-keyscan -p ${SSH_PORT} ${SSH_HOST_NAME} >> ~/.ssh/known_hosts
+
+#      - deploy:
+#         name: Start deploy
+#          command: |
+#              rsync -av --bwlimit=8192 --timeout=600 --delete --rsh="ssh -p ${SSH_PORT}" wp/wp-content/themes/ecokaishu/ ${SSH_USERNAME}@${SSH_HOST_NAME}:/home/ecoland/eco-kaishu/staging/data/test.eco-kaishu.jp/DocumentRoot/wp-content/themes/ecokaishu/
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy_to_staging:
+          requires:
+            - build
+          filters:
+            branches:
+              only: circleci-project-setup
