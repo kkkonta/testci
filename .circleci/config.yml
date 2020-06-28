@@ -45,6 +45,9 @@ jobs:
 
       # need rsync for deployment
       - run: sudo apt install -y rsync
+      
+      # known_hosts
+      - run: touch ~/.ssh/known_hosts
 
       - add_ssh_keys:
           fingerprints:
