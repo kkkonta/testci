@@ -47,6 +47,7 @@ jobs:
       - run: sudo apt install -y rsync
       
       # known_hosts
+      - run: mkdir ~/.ssh
       - run: touch ~/.ssh/known_hosts
 
       - add_ssh_keys:
